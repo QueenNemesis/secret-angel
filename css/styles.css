@@ -1,0 +1,1097 @@
+*{
+    box-sizing: border-box;
+} html{
+    scroll-padding-top: 12vw; /* move body below navigation bar*/
+    scroll-behavior: smooth; /* smooth scrolling when jumping to section */
+}
+
+/* ================= IMPORTING NEW FONTS FROM FOLDER ================= */
+
+@font-face {
+    font-family: 'Butler';
+    src: url(../images/font/Butler_Medium.otf);
+} @font-face {
+    font-family: 'Qanaya Bold';
+    src: url(../images/font/Qanaya-Bold.otf);
+} @font-face {
+    font-family: 'Qanaya Regular';
+    src: url(../images/font/Qanaya-Regular.otf);
+}
+
+/* ================= GENERAL DOCUMENT STYLING ================= */
+
+body{
+    background-color: #1E1E1E;
+    font-family: 'Raleway', sans-serif;
+    margin-top: -6em;
+    width: 100vw; 
+    overflow-x: hidden; /* hide the parts of the page that is greater the the viewport's width */
+} h1{
+    font-family: "Qanaya Bold";
+    text-align: center;
+}
+
+/* ================= LOADING ANIMATION STYLING ================= */
+
+#loader{ /* loading animation background/container */
+    width: 100vw; height: 104vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: #1e1e1e;
+    transition: opacity 0.2s;
+} #loading{ /* loading animation svg, source: https://codepen.io/nikhil8krishnan/pen/rVoXJa */
+    width: 6vw;
+    height: 6vw;
+    margin: auto;
+    margin-top: 42vh;
+    display: block;
+    text-align: center;
+}
+
+/* ================= INTRO SECTION STYLING ================= */
+
+#intro{ /* first section */
+    height: 108vh;
+    width: 100vw;
+} #intro img{ /* both full-sized logos on the first section */
+    position: absolute;
+    top: 32vh;
+    left: 20vw;
+    width: 60vw;
+} #intro #intro_logoV{ /* one is hidden depending on the viewport size */
+    display: none;
+} .arrows { /* svg arrow container at the bottom to indicate scrolling down */
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom: 5vh;
+} .arrows path { /* the svg arrows, URL: https://codepen.io/postor/pen/vYpNYg */
+    stroke: #ffffff80;
+    fill: transparent;
+    stroke-width: 7px;	
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite; 
+} @keyframes arrow{
+    0% {opacity:0}
+    40% {opacity:1}
+    80% {opacity:0}
+    100% {opacity:0}
+} @-webkit-keyframes arrow{
+    0% {opacity:0}
+    40% {opacity:1}
+    80% {opacity:0}
+    100% {opacity:0}
+} .arrows path.a1 {
+    animation-delay:-1s;
+    -webkit-animation-delay:-1s;
+} .arrows path.a2 {
+    animation-delay:-0.5s;
+    -webkit-animation-delay:-0.5s;
+} .arrows path.a3 {	
+    animation-delay:0s;
+    -webkit-animation-delay:0s;
+}
+
+/* ================= AUDIO PLAY/PAUSE ICON STYLING ================= */
+
+#speaker{ /* the music SVG container: https://codepen.io/nikhil8krishnan/pen/rVoXJa */
+    width: 2.5em;
+    position: sticky;
+    bottom: 90vh;
+    left: 1em;
+    z-index: 6;
+    text-align: left;
+    margin-left: 3em;
+} #svgoff{ /* audio off svg: https://iconmonstr.com/sound-off-thin-svg/ */
+    fill: rgb(255, 255, 255);
+    height: 25.5px;
+} #soundoffSvg{
+    display: block;
+    position: sticky;
+    top: 91vh;
+    left: 4em;
+    z-index: 6;
+    margin: 0;
+    width: fit-content;
+    transform: scale(1.5);
+} #soundonSvg{
+    display: none;
+    position: sticky;
+    top: 91vh;
+    left: 1em;
+    z-index: 6;
+    text-align: left;
+    margin: 0;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* ================= NAVIGATION BAR STYLING ================= */
+
+nav{
+    display: none; /* navigation bar initially invisible during the first section */
+    grid-template-columns: 18% 18% 28% 18% 18%;
+    z-index: 6;
+    position: sticky;
+    top: 3em;
+    margin-top: 0;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    text-align: center;
+} nav .link{ /* navigation links styling */
+    text-transform: uppercase;
+    font-family: 'Qanaya Regular';
+    font-size: 1.5em;
+    color: #282828;
+    text-decoration: none;
+    padding-top: 0.75em;
+} nav .link:hover{ /* hovering on each navigation link changing its colour */ 
+    color: #CC9C46;
+} nav .logo{ /* the logo at the center of the navigation bar */ 
+    font-family: 'Butler';
+    font-size: 1.7em;
+    color: #282828;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-color: #282828;
+    border-style: solid;
+    vertical-align: middle;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+} nav .logo:hover{  /* hovering on the logo changing its colour and border */ 
+    color: #CC9C46;
+    border-color: #CC9C46;
+}
+
+/* ================= HERO SECTION STYLING ================= */
+
+#hero{ /* main section styling */ 
+    position: relative;
+    margin: auto;
+    top: 0;
+    text-align: center;
+    color: #1E1E1E;
+} #hero img{ /* background image of the section */
+    width: 100%;
+    max-height: 104vh;
+    object-fit: cover;
+} #hero .container{ /* contains the title, texts and link */
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 45%;
+    width: max-content;
+} #hero h1{ /* title */
+    top: 32%;
+    left: 50%;
+    text-transform: uppercase;
+    font-family: 'Qanaya Regular';
+    font-size: 2.8em;
+    text-align: center;
+    letter-spacing: 0.05em;
+} #hero .text{ /* paragraph container */
+    top: 36%;
+    left: 50%;
+    font-size: 1.75em;
+    font-weight: 200;
+    line-height: 200%;
+    margin-top: -1em;
+} #hero a{ /* Try On link */
+    top: 40%;
+    left: 50%;
+    font-size: 1.75em;
+    text-underline-offset: 0.5em;
+    font-weight: 400;
+    color: #1E1E1E;
+} #hero a:hover{ /* link hovering effect */
+    color: #CC9C46;
+} #hero span{ /* second part of the paragraph that needs to be italicized */
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* ================= DETAILS SECTION STYLING ================= */
+
+#details{ /* general section styling */
+    width: 100vw;
+    height: 104vh;
+    background-color: #1E1E1E;
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+} #details .container{ /* main container of the section */
+    width: 60%;
+    margin: 11vw;
+    margin-top: 13vw;
+    display: inline-flex;
+    position: relative;
+} #details #left_col{ /* left column container */
+    width: 36%;
+} #details #right_col{ /* right column container */
+    width: 49%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    right: -29vw;
+} #details h1{ /* price */
+    font-size: 3.2em;
+    text-align: left;
+    margin-top: 2%;
+    margin-bottom: 10%;
+} #details h3{ /* product name */
+    font-size: 1.8em;
+    font-weight: 100;
+    margin: 0;
+} #details ul{ /* product details on grid */
+    display: grid;
+    grid-template-columns: 60% 40%;
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    font-size: 1.4em;
+    line-height: 3;
+    margin-bottom: 3em;
+} #details .att{ /* left column of the grid */
+    font-weight: 500;
+} #details .val{ /* right column of the grid */
+    font-weight: 100;
+} #details a{ /* "purchase" link */
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    vertical-align: middle;
+    font-size: 1.5em;
+    padding: 0.75em 5em;
+    width: max-content;
+    font-weight: 500;
+    outline: 2px solid #fff;
+    position: relative;
+    overflow: hidden;
+    transition: colour 0.5s ease-in-out;
+} #details a:hover{ /* "purchase" link hovering animation */
+    color: #1E1E1E;
+    font-weight: 600;
+} #details a::before{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+    transition: width 0.5s ease-in-out;
+} #details a:hover::before{
+    width: 100%;
+} #details .subtitle{ /* right column "try on the dress" text */
+    text-transform: uppercase;
+    font-family: "Qanaya Regular";
+    font-size: 2em;
+    margin-top: 0;
+    text-align: center;
+} #details p{ /* headings on top of each part */ 
+    font-size: 1.4em;
+    font-weight: 200;
+    margin: 8% 0;
+} #details sl-range{ /* shoelace component: range slider */
+    width: 93%;
+    --thumb-size: 2.5em; /* change the size of the circle */
+    --track-height: 0.75em; /* change the height of the slider track */
+    margin: auto;
+    display: block;
+    text-align: center;
+    margin-left: 0.9vw;
+} #details #sizes{ /* the sizes shadow that appears behind the component (circle + text) */
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    width: 92%;
+    height: 7vh;
+    gap: 1.3em;
+    margin: auto;
+    margin-top: -3.9%;
+    margin-bottom: 10%;
+    margin-left: 2.5%;
+    text-align: center;
+} #details #sizes svg{ /* the size circles container */
+    width: 3vw;
+} #details span{ /* the size label underneath each circle */
+    text-align: left;
+    font-size: 1.5em;
+    color: #6e6e75;
+    font-weight: 400;
+    padding-left: 4%;
+} #details sl-radio-group::part(base){ /* shoelace component: radio group for the colours */
+    display: grid;
+    width: 50%;
+    grid-template-columns: auto auto;
+    margin: auto;
+    text-align: center;
+} #details #colours{ /* the circles found on top of the radio button to define the button's colour + label */
+    pointer-events: none; /* to allow clicking behind the radio buttons behind the circle */
+    position: absolute;
+    z-index: 6;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 50% 50%;
+    width: 47.9%;
+    height: 7vh;
+    row-gap: 3.45vw;
+    column-gap: 0.3vw;
+    margin: auto;
+    margin-top: -8.55%;
+    margin-left: 7.4vw;
+    text-align: center;
+} #details #colours span{ /* the label of each colour underneath the circles */
+    text-align: center;
+    font-size: 1.25vw;
+} #details #colours span .white{ /* the white label is initially highlighted like its corresponding radio button because the dress is initially white */
+    color: #fff;
+} #details #colours svg{ /* the colours circles container */
+    margin-left: 2.4vw;
+} #details #accessories p{ /* accessories heading text */
+    margin-top: 5vw;
+    margin-bottom: 0;
+} #details .splide__arrow{ /* hiding carousel arrow keys, so only drag is possible */
+    display: none;
+} #details .splide__pagination{ /* hiding carousel dot pagination */
+    display: none;
+} #details .splideImg{ /* size of each image */
+    width: 40%;
+    height: 64%;
+} #details #splide01 li{ /* margin between each object in carousel */
+    margin: -1.95vw
+} #splide01-track{ /* size of the visible part of the carousel */
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 42vw;
+    left: -4vw;
+    top: 2.5vw;
+}
+
+/* ================= MODEL OVERLAY ================= */
+
+.girl{ /* women image */
+    pointer-events: none; /* to allow clicking behind the image */
+    width: 38%;
+    position: absolute;
+    z-index: 3;
+    top: 152rem;
+    left: 30vw;
+} .dress{ /* image of dress */
+    pointer-events: none; /* to allow clicking behind the image */
+    width: 38%;
+    position: absolute;
+    z-index: 4;
+    top: 152rem;
+    left: 30vw;
+} .dress2{ /* to be applied on the dress in JS to change colours */
+    pointer-events: none; /* to allow clicking behind the image */
+    width: 38%;
+    position: absolute;
+    z-index: 5;
+    top: 152rem;
+    left: 30vw;
+    -webkit-filter: hue-rotate(15deg) sepia(0.25);
+} #accessory1, #accessory2{ /* the hidden accessories that appear when clicking on corresponding splide image */
+    display: none;
+    pointer-events: none; /* to allow clicking behind the image */
+    position: absolute;
+    z-index: 4;
+    top: 150.5rem;
+    left: 47.5vw;
+    width: 3vw;
+} #accessory3{ /* the hidden accessories that appear when clicking on corresponding splide image */
+    display: none;
+    pointer-events: none; /* to allow clicking behind the image */
+    position: absolute;
+    z-index: 2;
+    top: 153rem;
+    left: 45vw;
+    width: 10vw;
+} #accessory4{ /* the hidden accessories that appear when clicking on corresponding splide image */
+    display: none;
+    pointer-events: none; /* to allow clicking behind the image */
+    position: absolute;
+    z-index: 2;
+    top: 153rem;
+    left: 40.4vw;
+    width: 18vw;
+} #accessory5{ /* the hidden accessories that appear when clicking on corresponding splide image */
+    display: none;
+    pointer-events: none; /* to allow clicking behind the image */
+    position: absolute;
+    z-index: 4;
+    top: 159.5rem;
+    left: 47.65vw;
+    width: 2.8vw;
+}
+#accessory6{ /* the hidden accessories that appear when clicking on corresponding splide image */
+    display: none;
+    pointer-events: none; /* to allow clicking behind the image */
+    position: absolute;
+    z-index: 4;
+    top: 159.5rem;
+    left: 47.7vw;
+    width: 2.6vw;
+}
+
+/* ================= YMAL SECTION STYLING ================= */
+
+#ymal{ /* general section styling */
+    width: 100vw;
+    height: 90vh;
+    background-color: #1E1E1E;
+    margin: 0;
+} #ymal .container{ /* main content container */
+    margin: 10vw;
+    margin-top: 120vh;
+} #ymal h1{ /* "You May Also Like" heading */
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: 'Qanaya-Regular';
+} #ymal .ia-container { /* accordion container */
+	width: 60%; /* width for the whole accordion */
+	margin: 5vw auto; /* centering the accordion */
+	overflow: hidden; /* hides part of images that go outside of the container */
+} #ymal .ia-container figure { /* each image container */
+    position: absolute;
+	top: 0; /* positions all images at the same line */
+	left: 4vw; /* width of visible part of image */
+	width: 20vw; /* width of all image containers */
+    margin: 0; /* removes unnecessary margins */
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.6); /* image border */
+    transition: all 0.3s ease-in-out;
+} #ymal .ia-container > figure { /* first figure positioned completely to the left */
+    position: relative;
+	left: 0 !important;
+} #ymal .ia-container img { /* editing the size and cropping of the images */
+	display: block;
+	width: 100%;
+    height: 30vw;
+    object-fit: cover;
+} #ymal .ia-container input { /* invisible radio button */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 4vw; /* to cover visible part */
+	height: 100%;
+	cursor: pointer;
+	border: 0;
+	padding: 0;
+    opacity: 0;
+	z-index: 100; /* high index to cover everything else */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+} #ymal .ia-container input:checked{ /* making the radio button of the opened image thin enough not to cause any click event */
+	width: 1px;
+	left: auto;
+	right: 0px;
+} #ymal .ia-container input:checked ~ figure { /* move sibling figures to the left */
+    left: 335px;
+    transition: all 0.7s ease-in-out;
+} #ymal .ia-container input:checked ~ figure input{
+    z-index: 1;
+}
+
+/* ==========FOOTER STYLIING============= */
+
+.footer-dark{ /* general section styling */
+    padding:2.5% 0;
+    margin: auto;
+    padding-bottom: 5%;
+}
+footer hr{ /* horizontal line */
+    margin-bottom: 4vw;
+    width: 90%;
+}
+footer .container{ /* main content container */
+    padding-bottom: 1vw;
+}
+.footer-dark ul{ /* contents are displayed in lists */
+    list-style:none;
+    margin-bottom:0;
+}
+footer li{ /* each list item of the first 2 columns */
+    line-height: 350%;
+    position: relative;
+}
+footer li a::after{ /* hovering animation */
+    content: ' ';
+    width: 20%; /* length of the underline */
+    height: 1px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0.8vw;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s ease;
+}
+footer li a:hover::after{
+    transform: scaleX(1);
+}
+footer .row{ /* contains 3 columns */
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 3%;
+    padding-right: 5%;
+}
+footer .col1, footer .col2{
+    flex: 18%;
+}
+footer .col2{
+    margin-left: -5%;
+}
+footer .col3{
+    flex: 45%;
+    display: block;
+}
+footer li, footer h3, footer p, footer li a{ /* styling the general font */
+    color:#ffffff;
+    font-weight: 200;
+    font-family: 'Raleway';
+    text-decoration: none;
+    font-size: 1vw;
+}
+footer span{ /* contact us in bold */
+    font-weight: 600;
+}
+footer h3{ /* subscribe to mailing list text */
+    font-size: 1.5em;
+}
+footer .disclaimer{ /* disclaimer message at the bottom */
+    font-size: 1em;
+    line-height: 200%;
+}
+footer .mobile{ /* hide disclaimer message out of the columns for better ordering on mobile */
+    display: none;
+}
+footer .subscribe{ /* container of shoelace input and button components */
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+footer sl-input{
+    flex: 60%;
+}
+footer sl-button{
+    margin-left: 1vw;
+}
+footer sl-input.medium{ /* hiding different sizes of button and input, to display according to different viewport sizes */
+    display: none;
+}
+footer sl-button.medium{
+    display: none;
+}
+
+/* ================= RESPONSIVENESS  ================= */
+
+@media only screen and (max-width: 1366px){
+    #intro svg{
+        margin-left: -55px;
+        transform: scale(0.75);
+    }
+    #hero.panel{
+        margin-top: 3vh;
+    }
+    nav{
+        top: 1.5em;
+    }
+    nav .link, nav .logo{
+        font-size: 1.2em;
+    }
+    #hero h1 {
+        font-size: 2em;
+    }
+    #hero .text {
+        font-size: 1.4em;
+        line-height: 1.8;
+    }
+    #hero a {
+        font-size: 1.25em;
+    }
+    #details .container {
+        width: 75%;
+    }
+    #details #left_col{
+        width: 30%;
+    }
+    #details #right_col {
+        width: 33%;
+        right: -28vw;
+    }
+    #details h3 {
+        font-size: 1.3em;
+    }
+    #details h1 {
+        font-size: 2.5em;
+    }
+    #details ul {
+        grid-template-columns: 45% 50%;
+        font-size: 1.1em;
+        line-height: 2.8;
+    }
+    #details a {
+        font-size: 1em;
+        padding: 0.75em 4.5em;
+    }
+    #details .subtitle {
+        font-size: 1.6em;
+    }
+    #details p {
+        font-size: 1.2em;
+    }
+    #details sl-range {
+        width: 108%;
+        --thumb-size: 2em;
+        --track-height: 0.7em;
+        margin-left: 0.5vw;
+    }
+    #details #sizes circle{
+        transform: scale(0.8);
+    }
+    #details #sizes {
+        width: 95%;
+        height: 9vh;
+        margin-top: -5.9%;
+        margin-left: 2%;
+    }
+    #details span {
+        font-size: 1.2em;
+        padding-left: 6%;
+    }
+    #details #colours span {
+        text-align: center;
+        font-size: 1.2vw;
+    }
+    #details #colours svg {
+        margin-left: 1.8vw;
+    }
+    #details #colours circle{
+        transform: scale(0.7);
+    }
+    #details #colours {
+        margin-top: -10.3%;
+        margin-left: 6.18vw;
+    }
+    #model .girl, #model .dress, #model .dress2{
+        width: 36%;
+        top: 112rem;
+        left: 31vw;
+    }
+    #accessory1, #accessory2 {
+        top: 111rem;
+    }
+    #accessory3, #accessory4 {
+        top: 113rem;
+    }
+    #accessory5, #accessory6 {
+        top: 117.2rem;
+    }
+    #ymal .ia-container figure {
+        width: 22vw; /* width of image container */
+        left: 4vw; /* width of the visible part of the image */
+    }
+    #ymal .ia-container input { /* invisible radio button */
+        width: 4vw; /* to cover the visible part */
+    }
+    #ymal .ia-container input:checked ~ figure { /* move sibling figures to the left */
+        left: 37vh; 
+        transition: all 0.7s ease-in-out;
+    }
+    footer h3 {
+        font-size: 1em;
+    }
+    footer .disclaimer {
+        font-size: 0.6em;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    #intro svg{
+        margin-left: -64px;
+        transform: scale(0.5);
+    }
+    #soundoffSvg{
+        transform: scale(1);
+        left: 3em;
+    }
+    #soundonSvg{
+        transform: scale(0.6);
+        top: 89vh;
+        left: -1em;
+    }
+    #hero.panel{
+        margin-top: 3vh;
+    }
+    nav{
+        top: 1.5em;
+    }
+    nav .link, nav .logo{
+        font-size: 1em;
+    }
+    #hero h1 {
+        font-size: 1.5em;
+        letter-spacing: 0.02em;
+    }
+    #hero .text {
+        font-size: 1.1em;
+        line-height: 2;
+    }
+    #hero a {
+        font-size: 1em;
+    }
+    #details .container {
+        width: 75%;
+        margin-top: 16vw
+    }
+    #details #left_col{
+        width: 30%;
+    }
+    #details #right_col {
+        width: 33%;
+        right: -28vw;
+    }
+    #details h3 {
+        font-size: 1.1em;
+    }
+    #details h1 {
+        font-size: 2em;
+    }
+    #details ul {
+        grid-template-columns: 50% 50%;
+        font-size: 1em;
+        line-height: 3;
+    }
+    #details a {
+        font-size: 0.9em;
+        padding: 0.75em 4.5em;
+    }
+    #details .subtitle {
+        font-size: 1.2em;
+        margin-bottom: 6vh;
+    }
+    #details p {
+        font-size: 0.9em;
+        margin-top: 6vh;
+    }
+    #details sl-range {
+        width: 100%;
+        --thumb-size: 1.6em;
+        --track-height: 0.6em;
+        margin-left: 0.5vw;
+    }
+    #details #sizes circle{
+        transform: scale(0.7);
+    }
+    #details #sizes {
+        width: 73.5%;
+        height: 8vh;
+        margin-top: -7%;
+        margin-left: 1.75%;
+        grid-template-rows: 65% 40%;
+        row-gap: 0;
+    }
+    #details span {
+        font-size: 0.9em;
+        padding-left: 9%;
+    }
+    #details #colours span {
+        text-align: center;
+        font-size: 1.2vw;
+    }
+    #details #colours svg {
+        margin-left: 2.5vw;
+    }
+    #details #colours circle{
+        transform: scale(0.32);
+    }
+    #details #colours {
+        margin-top: -7.3%;
+        margin-left: 5.8vw;
+        row-gap: 0;
+        column-gap: 0.225vw;
+        grid-template-rows: 45% auto;
+    }
+    #details #accessories p {
+        margin-top: 7vw;
+    }
+    #details #splide01-track {
+        left: -5.2vw;
+        top: 3.5vw;
+    }
+    #model .girl, #model .dress, #model .dress2{
+        width: 48%;
+        top: 103rem;
+        left: 23vw;
+    }
+    #accessory1, #accessory2 {
+        top: 102rem;
+        left: 45vw;
+        width: 4vw;
+    }
+    #accessory3 {
+        top: 104rem;
+        left: 41vw;
+        width: 14vw;
+    }
+    #accessory4 {
+        top: 104rem;
+        left: 35vw;
+        width: 24vw;
+    }
+    #accessory5, #accessory6 {
+        top: 108.1rem;
+        left: 44.9vw;
+        width: 3.5vw;
+    }
+    #ymal{
+        height: 68vh;
+    }
+    #ymal h1{
+        font-size: 1.25rem;
+    }
+    #ymal .ia-container{
+        width: 80%;
+    }
+    #ymal .ia-container figure {
+        width: 25vw; /* width of image container */
+        left: 5.5vw; /* width of the visible part of the image */
+    }
+    #ymal .ia-container input { /* invisible radio button */
+        width: 5.5vw; /* to cover the visible part */
+    }
+    #ymal .ia-container input:checked ~ figure { /* move sibling figures to the left */
+        left: 32vh; 
+        transition: all 0.7s ease-in-out;
+    }
+    footer h3 {
+        font-size: 0.8em;
+    }
+    footer .disclaimer {
+        font-size: 0.5em;
+    }
+    footer .dis_con{
+        margin-top: 3vh;
+    }
+    footer sl-input{
+        display: none;
+    }
+    footer sl-button{
+        display: none;
+    }
+    footer sl-input.medium{
+        display: inline-block;
+    }
+    footer sl-button.medium{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #intro #intro_logoV{
+        display: block;
+    }
+    #intro #intro_logo{
+        display: none;
+    }
+    #intro img {
+        top: 20vh;
+        left: 16vw;
+        width: 64vw;
+    }
+    #intro svg{
+        margin-left: -108px;
+        transform: scale(0.5);
+    }
+    #soundoffSvg{
+        transform: scale(1);
+        left: 3em;
+        top: 93vh;
+    }
+    #soundonSvg{
+        transform: scale(0.6);
+        top: 91.5vh;
+        left: -1em;
+    }
+    #hero.panel{
+        margin-top: 3vh;
+    }
+    nav{
+        top: 1.2em;
+        margin-left: 2vw;
+        margin-right: 8vw
+    }
+    nav .link, nav .logo{
+        font-size: 0.7em;
+    }
+    #hero h1 {
+        font-size: 1.1em;
+        letter-spacing: 0.02em;
+    }
+    #hero .text {
+        font-size: 0.75em;
+        line-height: 2;
+    }
+    #hero a {
+        font-size: 0.75em;
+    }
+    #details{
+        height: 72vh;
+    }
+    #details .container {
+        width: 75%;
+        margin-top: 22vw
+    }
+    #details #left_col{
+        width: 32%;
+    }
+    #details #right_col {
+        width: 32%;
+        right: -28vw;
+    }
+    #details h3 {
+        font-size: 0.8em;
+    }
+    #details h1 {
+        font-size: 1.5em;
+    }
+    #details ul {
+        grid-template-columns: 37.5% 50%;
+        font-size: 0.7em;
+        line-height: 4;
+    }
+    #details a {
+        font-size: 0.7em;
+        padding: 0.75em 3.5em;
+    }
+    #details .subtitle {
+        font-size: 0.9em;
+        margin-bottom: -2vh;
+    }
+    #details p {
+        font-size: 0.7em;
+        margin-top: 5vh;
+    }
+    #details sl-range {
+        width: 104%;
+        --thumb-size: 1.5em;
+        --track-height: 0.5em;
+        margin-left: -0.5vw;
+        margin-top: 15%;
+    }
+    #details #sizes circle{
+        transform: scale(0.6);
+    }
+    #details #sizes {
+        width: 61.5%;
+        height: 5vh;
+        margin-top: -9%;
+        margin-left: -2.6%;
+        grid-template-rows: 65% 40%;
+        row-gap: 0;
+    }
+    #details span {
+        font-size: 0.7em;
+        padding-left: 20%;
+    }
+    #details #colours span {
+        text-align: center;
+        font-size: 1.3vw;
+    }
+    #details #colours svg {
+        margin-left: 2.5vw;
+    }
+    #details #colours circle{
+        transform: scale(0.32);
+    }
+    #details #colours {
+        margin-top: -10%;
+        margin-left: 5.15vw;
+        row-gap: 0px;
+        column-gap: 0.225vw;
+        grid-template-rows: 36% auto;
+    }
+    #details #accessories p {
+        margin-top: 9vw;
+    }
+    #details #splide01-track {
+        left: -5vw;
+        top: 3.5vw;
+    }
+    #model .girl, #model .dress, #model .dress2{
+        width: 50%;
+        top: 113rem;
+        left: 21vw;
+    }
+    #accessory1, #accessory2 {
+        top: 112.2rem;
+        left: 43.8vw;
+        width: 4vw;
+    }
+    #accessory3 {
+        top: 114rem;
+        left: 40vw;
+        width: 14vw;
+    }
+    #accessory4 {
+        top: 114rem;
+        left: 34vw;
+        width: 24vw;
+    }
+    #accessory5, #accessory6 {
+        top: 117.1rem;
+        left: 43.7vw;
+        width: 4vw;
+    }
+    #ymal{
+        height: 52vh;
+        margin-top: -40vh;
+    }
+    #ymal h1{
+        font-size: 1rem;
+    }
+    #ymal .ia-container{
+        width: 80%;
+    }
+    #ymal .ia-container figure {
+        width: 25vw; /* width of image container */
+        left: 5.5vw; /* width of the visible part of the image */
+    }
+    #ymal .ia-container input { /* invisible radio button */
+        width: 5.5vw; /* to cover the visible part */
+    }
+    #ymal .ia-container input:checked ~ figure { /* move sibling figures to the left */
+        left: 25vw; 
+        transition: all 0.7s ease-in-out;
+    }
+    footer h3 {
+        font-size: 0.8em;
+    }
+    footer .disclaimer {
+        font-size: 0.4em;
+    }
+    footer .dis_con{
+        margin-top: 1.5vh;
+    }
+    footer sl-input{
+        display: none;
+    }
+    footer sl-button{
+        display: none;
+    }
+    footer sl-input.medium{
+        display: inline-block;
+    }
+    footer sl-button.medium{
+        display: flex;
+    }
+}
